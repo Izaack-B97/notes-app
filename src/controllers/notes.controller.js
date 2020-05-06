@@ -13,6 +13,7 @@ notesController.createNewNote = async (req, res) => {
         let newNote = new Note({ title, description });
         // console.log(newNote);
         let result = await newNote.save();
+        req.flash('success_msg', 'Note Added Successfully'); // Guarda un mensaje  en el servidor
         res.redirect('/notes');
     } catch (error) {
       res.status(500).json(error);
@@ -46,6 +47,7 @@ notesController.updateNote = async (req, res) => {
         let id = req.params.id;
         const { title, description } = req.body;
         const result = await Note.updateOne({ _id: id }, { $set:  {title, description} });
+        req.flash('success_msg', 'Note Updated Successfully');
         res.redirect('/notes');
     } catch (error) {
         res.status(500).json(error);
@@ -56,6 +58,7 @@ notesController.deleteNote = async (req, res) => {
     try {
         let id = req.params.id;
         let result = await Note.findByIdAndDelete(id);
+        req.flash('success_msg','Note Delete Successfully');
         res.redirect('/notes');        
     } catch (error) {
         res.status(500).json(error);

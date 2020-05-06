@@ -1,0 +1,19 @@
+extends ../layout.pug 
+
+block contenido
+    .row
+        .col-md-4.mx-auto
+            .card
+                .card-header Account Register
+                .card-body
+                    form(action="/users/singup", method="post")
+                        .form-group
+                            input.form-control(type="text" name="name" placeholder="Name" autofocus required)
+                        .form-group
+                            input.form-control(type="email" name="email" placeholder="Email" required)
+                        .form-group
+                            input.form-control(type="password" name="password" placeholder="Password" required)
+                        .form-group
+                            input.form-control(type="password" name="confirm_password" placeholder="Confirm Password" required)
+                        .form-group
+                            button.btn.btn-primary.btn-block(type="submit") SingUp

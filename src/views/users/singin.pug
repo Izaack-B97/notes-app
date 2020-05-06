@@ -1,0 +1,16 @@
+extends ../layout.pug 
+
+block contenido
+     .row
+        .col-md-5.mx-auto
+            .card
+                .card-header Account Login
+                img.rouded-circle.mx-auto.pt-3.d-block.logo(src="/img/logo.png", alt="Logo User")
+                .card-body
+                    form(action="/users/singin", method="post")
+                        .form-group
+                            input.form-control(type="email" name="email" placeholder="Email" required)
+                        .form-group
+                            input.form-control(type="password" name="password" placeholder="Password" required)
+                        .form-group
+                            button.btn.btn-primary.btn-block(type="submit") SingIn

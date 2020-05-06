@@ -40,7 +40,11 @@ html(lang="en")
                         li.nav-item
                             a.nav-link Register
 
-        main.p-5.container    
+        main.p-5.container   
+            // Importamos el alert para flash
+            block messages-flash    
+                include message-flash
+            // Area del contenido principal 
             block contenido
 
         //BOOSTRAP JS, JQUERY, POPPER
