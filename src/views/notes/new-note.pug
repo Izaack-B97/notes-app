@@ -1,0 +1,16 @@
+extends ../layout.pug 
+
+block contenido   
+
+   .col-md-4.mx-auto
+        .card.text-center.shadow-lg
+            .card-header
+                h3 New Note
+            .card-body
+                form(action="/notes/new-note" method="POST")
+                    .form-group    
+                        input(type="text" name="title" class="form-control" placeholder="title" focus)
+                    .form-group    
+                        textarea(name="description", cols="30", rows="10" placeholder="Description" class="form-control")
+                    .form-group
+                        button.btn.btn-primary.btn-block Save

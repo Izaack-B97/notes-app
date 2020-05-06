@@ -1,0 +1,17 @@
+extends ../layout.pug
+
+block contenido
+    .row
+        each val in notas
+            .col-md-3
+                .card.rounded.shadow.p-3
+                    .card-body
+                        h4.card-title.d-flex.justify-content-between.align-items-center=val.title
+                            a(href=`/notes/edit/${val._id}`)    
+                                i.fa.fa-pencil
+                        .card-text
+                            p=val.description 
+                            form(action=`/notes/delete/${val._id}?_method=DELETE` method="POST")
+                                input(type="hidden" name="_method" value="DELETE")
+                                button.btn.btn-danger.btn-block.btn-sm(type="submit") Delete
+    

@@ -1,0 +1,16 @@
+extends ../layout
+
+block contenido
+    .col-md-4.mx-auto
+        .card.p-3.shadow    
+            .card-header
+                h3 Edit Note
+            .card-body
+                form(action=`/notes/edit/${nota._id}?_method=PUT` method="POST")
+                    input(type="hidden" name="_method" value="PUT")
+                    .form-group
+                        input.form-control(type="text" name="title" placeholder="Title" value=nota.title)      
+                    .form-group
+                        textarea.form-control(type="text" name="description" placeholder="Description" cols="30", rows="10") #{ nota.description }
+                    .form-group
+                        button.btn.btn-primary.btn-block(type="submit") Save
