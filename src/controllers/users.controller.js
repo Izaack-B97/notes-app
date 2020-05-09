@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const passport = require('passport');
 const usersController = {};
 
 usersController.renderSingUpForm = (req, res) => {
@@ -44,12 +45,17 @@ usersController.renderSingInForm = (req, res) => {
     res.render('users/singin');
 };
 
-usersController.singIn = (req, res) => {
-    res.send('singip');
-};
+usersController.singIn = passport.authenticate('local', { // Validar un autenticacion definida antes
+    failureRedirect: '/users/singin',
+    successRedirect: '/notes',
+    failureFlash: true
+
+}); 
 
 usersController.logOut = (req, res) => {
-    res.send('logout');
+    req.logout(); // passport ya cierra la sesion por nosotros
+    req.flash('success_msg', 'You are logget out now.');
+    res.redirect('/users/singin');
 };
 
 module.exports = usersController;

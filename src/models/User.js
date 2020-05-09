@@ -29,14 +29,20 @@ const generateHashPassword = plainPassword => {
   });
   
   // Compara la contraseña original con la contraseña "HASEADA"
-  userSchema.methods.comparePassword = function (candidatePassword, hashPassword, cb) {
-    bcrypt.compare(candidatePassword, hashPassword, function (err, isMatch) {
+  // userSchema.methods.comparePassword = function (candidatePassword, hashPassword, cb) {
+  //   bcrypt.compare(candidatePassword, hashPassword, function (err, isMatch) {
   
-      if (err) {
-        return cb(err);
-      }
-      cb(null, isMatch);
-    });
+  //     if (err) {
+  //       return cb(err);
+  //     }
+  //     cb(null, isMatch);
+  //   });
+  // };
+
+  // Descincripta la contraseña
+  userSchema.methods.matchPassword = async function(password){
+    return await bcrypt.compare(password, this.password);
   };
-  
+
   module.exports = model("users", userSchema);
+

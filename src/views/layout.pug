@@ -12,34 +12,10 @@ html(lang="en")
         link(rel="stylesheet", href="/css/main.css")
 
     body
-        header
-            nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-                a.navbar-brand(href='/') NotesApp
-                button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
-                    span.navbar-toggler-icon
-                #navbarNav.collapse.navbar-collapse
-                    ul.navbar-nav
-                        li.nav-item.active
-                            a.nav-link(href='/')
-                                | Home 
-                                span.sr-only (current)
-                        li.nav-item
-                            a.nav-link(href='/about') About
-                    ul.navbar-nav.ml-auto
-                        li.nav-item.dropdown
-                            a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
-                                | Notes
-                            .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
-                                a.dropdown-item(href='/notes') All Notes
-                                a.dropdown-item(href='/notes/add') Add Notes
-                                .dropdown-divider
-                                a.dropdown-item(href='#') Logout
-
-                        li.nav-item
-                            a.nav-link(href="/users/singin") Login
-                        li.nav-item
-                            a.nav-link(href="/users/singup") Register
-
+        // Area de navegacion
+        block navbar
+            include navbar
+        // Area principal
         main.p-5.container   
             // Importamos el alert para flash
             block message-alerts    
