@@ -1,0 +1,23 @@
+[33mcommit c62d1232552777fbe8fe4b0fafc2d67945928c98[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Isaac Bustamante <izaack.97@gmail.com>
+Date:   Fri May 8 22:01:46 2020 -0700
+
+    Ya se loggea haciendo el match con los passwords
+
+[33mcommit 5e8cd44390c7bf08dbccabdd18fcccc691050739[m
+Author: Isaac Bustamante <izaack.97@gmail.com>
+Date:   Thu May 7 22:04:59 2020 -0700
+
+    Alfin ecripta las contraseña al guardar en la bd
+
+[33mcommit ce24acb649c1b667235eebc472bfa3a5b3fd171a[m
+Author: Isaac Bustamante <izaack.97@gmail.com>
+Date:   Wed May 6 12:04:22 2020 -0700
+
+    Se ha agregado las rutas y vistas del login y registro
+
+[33mcommit 58310dbc94fe09c57ec6240e0351b421e4f6b5f2[m
+Author: Isaac Bustamante <izaack.97@gmail.com>
+Date:   Tue May 5 17:33:32 2020 -0700
+
+    Se establecio el crud completo

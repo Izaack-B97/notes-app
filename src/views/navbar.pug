@@ -14,9 +14,9 @@ header
             ul.navbar-nav.ml-auto
                 if user
                     li.nav-item.dropdown
-                        a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                        a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' style="margin-right: 4em")
                             | Notes
-                        .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+                        .dropdown-menu.animated.bounceIn(aria-labelledby='navbarDropdownMenuLink')
                             a.dropdown-item(href='/notes') All Notes
                             a.dropdown-item(href='/notes/add') Add Notes
                             .dropdown-divider
