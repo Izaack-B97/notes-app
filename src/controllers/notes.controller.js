@@ -9,22 +9,23 @@ notesController.renderNoteForm = (req, res) => {
 notesController.createNewNote = async (req, res) => {
     try {
         const { title, description } = req.body;
-    
+        let user = req.user.id;
+
         let newNote = new Note({ title, description });
+        newNote.user = user;
         // console.log(newNote);
-        let result = await newNote.save();
+        let result = await newNote.save();        
         req.flash('success_msg', 'Note Added Successfully'); // Guarda un mensaje  en el servidor
         res.redirect('/notes');
     } catch (error) {
       res.status(500).json(error);
-  }
-
-    
+    }
 };
 
 notesController.renderNotes = async (req, res) => {
     try {
-        let notas = await Note.find();
+        let user_id = req.user.id
+        let notas = await Note.find({user: user_id}).sort({ createdAt: 'desc'});
         res.render('notes/all-notes', { notas });
     } catch (error) {
         
@@ -33,10 +34,17 @@ notesController.renderNotes = async (req, res) => {
 
 notesController.renderEditForm = async (req, res) => {
     try {
+        let user_id = req.user.id;
         let id = req.params.id;
         let nota = await Note.findById(id);        
 
-        res.render('notes/edit-note', { nota });
+        if (nota.user === user_id){
+            res.render('notes/edit-note', { nota });
+        } else {
+            req.flash('error_msg', 'No estas autorizado');
+            res.redirect('/notes');
+        }
+        
     } catch (error) {
         res.status(500).json(error);
     }

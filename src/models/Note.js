@@ -4,8 +4,13 @@ const Schema = mongoose.Schema;
 const noteSchema = new Schema({
     title: { 
         type: String , 
-        required: true},
+        required: true
+    },
     description: {
+        type: String,
+        required: true
+    },
+    user: {
         type: String,
         required: true
     }
