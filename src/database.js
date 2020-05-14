@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 // const NOTES_APP_MONGODB_HOST = process.env.NOTES_APP_MONGODB_HOST;
 // const NOTES_APP_MONGODB_DATABASE = process.env.NOTES_APP_MONGODB_DATABASE;
 
-const NOTES_APP_MONGODB_HOST = 'localhost'
-const NOTES_APP_MONGODB_DATABASE = 'nodes-app';
+// const NOTES_APP_MONGODB_HOST = 'localhost'
+// const NOTES_APP_MONGODB_DATABASE = 'nodes-app';
 
-const MONGODB_URI = `mongodb://${NOTES_APP_MONGODB_HOST}/${NOTES_APP_MONGODB_DATABASE}`;
+const MONGODB_URI = `mongodb+srv://isaac:1234@notes-app-brqi7.mongodb.net/test?retryWrites=true&w=majority`;
 
 // console.log(MONGODB_URI);
 
