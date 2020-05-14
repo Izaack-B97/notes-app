@@ -4,7 +4,7 @@ const indexRoute = require('./routes/index');
 const notesRoutes = require('./routes/notes');
 const express = require('express');
 const path = require('path');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 const methodOverride = require('method-override');
 const flash = require('connect-flash'); 
 const session = require('express-session');
@@ -21,7 +21,7 @@ app.set('view engine', 'pug');
 
 // Middlewars
 app.use(express.urlencoded({ extended: false }));
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use(methodOverride('_method'));
 app.use(session({
     secret: 'secret',
